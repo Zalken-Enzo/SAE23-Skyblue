@@ -1,7 +1,7 @@
 <?php
 // connecte à la page de connextion 
 include 'connect.php';
-include_once('entete.html');
+include_once('../include/entete.html');
 
 // récupère l'ID de l'article depuis l'url
 $article_id = $_GET['id'];
@@ -19,7 +19,7 @@ if ($result->num_rows > 0 ){
     <head>
         <meta charset='UTF-8'>
         <title> Skyblue - <?php echo $article['titre']; ?> </title> <!-- récupère le titre de la l'article pour le mettre dans la page -->
-        <link rel='stylesheet' type='text/css' href='styles.css'>
+        <link rel='stylesheet' type='text/css' href='../style.css'>
 
     </head>
 

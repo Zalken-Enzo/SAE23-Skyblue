@@ -5,7 +5,7 @@
 // récupère l'ID de l'article depuis l'url
 
 $id_article =2;
-include 'database.php';
+include '../include/database.php';
 // Préparer la requête pour obtenir les détails de l'article
 $sql = 'SELECT * FROM article WHERE id_article = :id_article';
 $stmt = $connexion->prepare($sql);
@@ -21,7 +21,7 @@ if (!$article) {
 // permet d'executer la requête préparé
 
 session_start();
-include 'function_panier.php';
+include '../traitement/function_panier.php';
 creationPanier();
 if (isset($_POST['ajouter'])) {
     ajouterArticle($_POST['nomProduit'], 1, $_POST['prixProduit'], $_POST['imageProduit']);
@@ -35,7 +35,7 @@ $note = 4 //$article['note']; // note temporaire pour les testes, à imorté en 
         <meta charset='UTF-8'>
         <title> Skyblue - <?php echo $article['titre'] ?> </title>
         <!-- tire en aute de page, à imorté en SQL -->
-        <link rel='stylesheet' type='text/css' href='style.css'>
+        <link rel='stylesheet' type='text/css' href='../style.css'>
         <!-- style de la page  -->
         <script src="note.js" defer></script>
         <!-- scripte pour le système de note     -->
@@ -43,7 +43,7 @@ $note = 4 //$article['note']; // note temporaire pour les testes, à imorté en 
 
     <body>
         <?php
-            include_once('entete.html');
+            include_once('../include/entete.html');
         ?>
             
         <!-- inclusion de l'entête commune  -->

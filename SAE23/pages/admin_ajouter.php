@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel - Ajouter un Article</title>
     <link rel="stylesheet" href="style.css">
-    <?php include('entete.html'); ?>
+    <?php include('../traitement/entete.html'); ?>
 </head>
 
 <body>
@@ -93,7 +93,7 @@
         </div>
     </form>
 
-    <?php include('pieds.html'); ?>
+    <?php include('../include/pieds.html'); ?>
 
 </body>
 

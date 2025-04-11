@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <title>Panier | SkyBlue</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style_panier.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 
 <body> 
-    <?php include "entete.html"; ?>
+    <?php include "../include/entete.html"; ?>
 
         <?php
         // Inclusion des fichiers nécessaires
-        include 'function_panier.php';
+        include '../traitement/function_panier.php';
         
         // Création du panier si non existant
         creationPanier();
@@ -131,7 +131,7 @@
                 
             </div>
         </section>
-        <?php include "pieds.html"; ?>
+        <?php include "../include/pieds.html"; ?>
         
     </body>
 </html>

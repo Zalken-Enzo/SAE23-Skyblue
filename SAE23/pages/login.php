@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8" />
     <title>Accueil</title>
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="../style.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
 <body>
 <header>
-        <?php include 'include/entete.html'; ?>
+        <?php include '../include/entete.html'; ?>
 </header>
 
 <div class="login-box">
@@ -45,7 +45,7 @@
 
 
 
-<?php include 'include/pieds.html'; ?>
+<?php include '../include/pieds.html'; ?>
 </body>
 
 </html>

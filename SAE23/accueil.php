@@ -55,7 +55,7 @@
         <div class="heading">
             <h1>Films</h1>
             <span>Dernière sortie</span>
-            <a href="films.php" class="swbutton">Voir plus !</a>
+            <a href="pages/films.php" class="swbutton">Voir plus !</a>
         </div>
 
         <!-- SQL -->

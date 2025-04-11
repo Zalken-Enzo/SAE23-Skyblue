@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel - Ajouter un Article</title>
-    <link rel="stylesheet" href="style.css">
-    <?php include 'include/entete.html'; ?>
+    <link rel="stylesheet" href="../style.css">
+    <?php include '../include/entete.html'; ?>
 </head>
 
 <body>
@@ -109,7 +109,7 @@
 		<!-- Fin de la boite standard -->
 	</div>
 <!-- Fin du conteneur central -->
-<?php include 'include/pieds.html'; ?>
+<?php include '../include/pieds.html'; ?>
 
 </body>
 
