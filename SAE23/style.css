@@ -1,4 +1,4 @@
-/* CSS de style.css */
+/* CSS de style.css SAE23 - Skyvblue */
 /* Reset CSS */
 * {
   margin: 0;
@@ -8,8 +8,7 @@
   font-family: "Montserrat", sans-serif;
 }
 
-/* entete.html // header */
-
+/* entete.html // header - entete.html // header - entete.html // header */
 li,
 a,
 button,
@@ -153,7 +152,11 @@ header a.sgn:nth-of-type(3) {
   margin-left: 10px;
 }
 
-/* Section CSS de accueil.php */
+
+
+
+
+/* Section CSS de accueil.php - Section CSS de accueil.php - Section CSS de accueil.php  */
 #home {
   padding: 0;
   height: 100vh;
@@ -422,100 +425,7 @@ header a.sgn:nth-of-type(3) {
   background-color: #3c4575;
 }
 
-
-/* Forcer le footer à occuper tout l'espace en bas */
-footer .footer {
-  background-color: rgb(53, 51, 51);
-  padding: 100px 0;
-  width: 100%;
-  margin-bottom: 2%;
-}
-
-/* Conteneur du footer */
-.footcontainer {
-  width: 100%;
-  max-width: 1200px;
-  margin: auto;
-}
-
-/* Organisation des colonnes */
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-/* Ajustement des colonnes */
-.footer-col {
-  flex: 1;
-  min-width: 250px;
-  padding: 20px;
-}
-
-.footer-col h4 {
-  font-size: 18px;
-  color: white;
-  text-transform: capitalize;
-  margin-bottom: 30px;
-  font-weight: 500;
-  position: relative;
-}
-
-.footer-col h4::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -10px;
-  background-color: #4452aa;
-  height: 2px;
-  box-sizing: border-box;
-  width: 50px;
-}
-
-.footer-col ul li:not(:last-child) {
-  margin-bottom: 10px;
-}
-
-.footer-col ul li a {
-  font-size: 16px;
-  text-transform: capitalize;
-  color: white;
-  text-decoration: none;
-  font-weight: 300;
-  color: gray;
-  display: block;
-  transition: all 0.3s ease 0s;
-}
-
-.footer-col ul li a:hover {
-  color: white;
-  padding-left: 10px;
-}
-
-.footer-col .social-links a {
-  display: inline-block;
-  height: 40px;
-  width: 40px;
-  background-color: rgba(255, 255, 255, 0.2);
-  margin: 0px 10px 10px 0;
-  text-align: center;
-  line-height: 40px;
-  border-radius: 50%;
-  color: white;
-  transition: all 0.3s ease 0s;
-}
-
-.footer-col .social-links a:hover {
-  /* color: #24262b; */
-  background-color: white;
-}
-
-
-
-
-
-
+/* Section CSS de login.php - Section CSS de login.php - Section CSS de login.php  */
 
 .login-box {
   display: flex;
@@ -629,126 +539,7 @@ footer .footer {
   margin-bottom: 30px; /* Un peu d'espace avant les CGU */
 }
 
-
-
-
-
-/* CSS de admin.php */
-.admin-box {
-  max-width: 900px;
-  margin: 50px auto;
-  background-color: #1a1a2e;
-  padding: 30px;
-  border-radius: 12px;
-  color: #fff;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  background-color : rgba(0,0,0,0)
-}
-
-.admin-box h2 {
-  text-align: center;
-  margin-bottom: 25px;
-  font-size: 24px;
-}
-
-.admin-form .form-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-group label {
-  margin-bottom: 8px;
-  font-weight: 500;
-  color: #bbb;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  background-color: #222;
-  color: #fff;
-  border: 1px solid #333;
-  border-radius: 8px;
-  padding: 10px;
-  font-size: 14px;
-  transition: 0.3s;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: #6c63ff;
-  box-shadow: 0 0 5px #6c63ff50;
-}
-
-.description {
-  grid-column: span 2;
-}
-
-.form-actions {
-  text-align: center;
-  margin-top: 30px;
-}
-
-.submit-btn {
-  background-color: #6c63ff;
-  color: white;
-  border: none;
-  padding: 12px 30px;
-  font-size: 16px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.submit-btn:hover {
-  background-color: #574fd6;
-}
-
-
-.admin-table {
-  width: 90%;
-  margin: auto;
-  border-collapse: collapse;
-  background-color: #ffffff10;
-  color: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.admin-table th, .admin-table td {
-  padding: 12px;
-  text-align: center;
-  border-bottom: 1px solid #ffffff20;
-}
-
-.admin-table img {
-  max-width: 60px;
-  height: auto;
-  border-radius: 8px;
-}
-
-.admin-table th {
-  background-color: #4452aa;
-}
-
-.admin-table tr:hover {
-  background-color: #ffffff08;
-}
-
-.media-list h2 {
-  color: #fff;
-}
-
-
-/* Conteneur des filtres */
+/* Section CSS de filtres pour séries films - Section CSS de filtres pour séries films   */
 .filter-container {
   max-width: 1200px;
   margin: 30px auto;
@@ -915,10 +706,9 @@ padding: 5px;
 border-radius: 15px;
 background-color: #24252a;
 color: white;
-
-
 }
-/* Admin main */
+
+/* Admin main - Admin main - Admin main - Admin main */
 #photoAdminMain{
 
 width: 250px;
@@ -957,4 +747,328 @@ border:1px 1px solid black;
 box-shadow: 0px 0px;
 transform: translate(3px, 3px);
 border-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Panier - Panier - Panier */
+
+section {
+  display: flex;
+  font-family: "Montserrat", sans-serif; /* Police de caractères */
+  margin-top: 2%;
+  padding: 2%;
+  flex-direction: row; /* Alignement vertical */
+  justify-content: space-around; /* Espacement entre les éléments */
+  color: #343a40; /* Couleur du texte du titre */
+
+
+}
+
+.panier{
+  flex-direction: column;
+  width: 65%; /* Largeur du panier */
+  align-items: center; /* Alignement vertical centré */
+  margin-bottom: 20px; /* Marge inférieure pour espacer les éléments */
+  padding: 10px;
+  background-color: #f8f9fa; /* Couleur de fond blanche pour le panier */
+  height: 100%; /* Hauteur du panier */
+
+}
+
+.paiement {
+    
+  width: 33%; /* Largeur totale */
+  height: 100%; /* Hauteur totale */
+  background-color: #f8f9fa; /* Couleur de fond de la section totale */
+  position: sticky; /* Rendre la section totale collante */
+  color: #343a40; /* Couleur du texte du titre */
+
+
+}
+
+h2 {
+  font-size: 24px; /* Taille de la police pour le titre */
+  background-color: #f8f9fa;
+  color: #343a40; /* Couleur du texte du titre */
+  margin: 1%;
+
+}
+
+a{
+  text-decoration: none; /* Pas de soulignement sur les liens */
+  color: #343a40; /* Couleur du texte des liens */
+  font-size: 18px; /* Taille de la police pour le texte */
+  margin: 1%;
+  background-color: #f8f9fa;
+}
+
+select, option {
+  margin: 1%;
+  border: 1px solid #343a40; /* Bordure du sélecteur */
+  background-color: #ffffff; /* Couleur de fond blanche pour le sélecteur */
+  color: #343a40; /* Couleur du texte du sélecteur */
+  width: 20%;
+  padding: 9px 25px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+span {
+  font-size: 18px; /* Taille de la police pour le texte */
+  margin: 1%;
+  color: #343a40; /* Couleur du texte du titre */
+  background-color: #f8f9fa;
+}
+
+form {
+  background-color: #f8f9fa; /* Couleur de fond blanche pour le panier */
+  padding: 1%; /* Espacement interne */
+  border: solid #24252a 1px;
+  margin-bottom: 7%;
+
+}
+
+.form_paiement {
+  background-color: #f8f9fa; /* Couleur de fond blanche pour le panier */
+  border-radius: 5px; /* Coins arrondis */
+  padding: 1%; /* Espacement interne */
+
+}
+
+p {
+  font-size: 18px; /* Taille de la police pour le texte */
+  margin: 2% 1% 0% 0%;
+  color: #343a40; /* Couleur du texte du titre */
+  background-color: #f8f9fa;
+  padding: 2%; /* Espacement interne */
+}
+
+button {
+  padding: 9px 25px;
+  margin-left: 1%;
+  border: 2px solid #343a40;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  font-size: 14px;
+  box-sizing: border-box; /* Assurer que les dimensions incluent la bordure */
+  background-color: #f8f9fa; /* Fond transparent */
+}
+
+button:hover {
+  background-color: #343a40;
+  border-color: #f8f9fa;
+  color: #f8f9fa; /* Changement de couleur de fond au survol */
+}
+
+.button_paiement {
+  background-color: #4d5fdf;
+  width: 80%;
+  margin: 5% 10% 2% 10%;
+}
+
+.button_paiement:hover {
+  background-color: #3c4575;
+  border-color: #000000;
+  color: #f8f9fa; /* Changement de couleur de fond au survol */
+  font-style: bold;
+}
+
+.article-container {
+  padding: 1%;
+  background-color: #f8f9fa; /* Couleur de fond blanche pour l'article */
+  z-index: 1;
+}
+
+.img_panier {
+  width: 15%; /* Largeur de l'image */
+  height: 100%;
+  margin: 1%;
+  border: #24252a solid;
+}
+
+.img_menu {
+  width: 100%; /* Largeur de l'image */
+  height: 100%;
+  margin: 1%;
+  border: #24252a solid;
+}
+
+.carousel-container {
+ 
+  width: 100%;
+  height: 100%;
+  border: #24252a solid;
+  background-color: #f8f9fa;
+  
+}
+
+.carousel {
+  display: flex;
+  flex-direction: row; /* Alignement horizontal */
+  justify-content: space-around; /* Espacement entre les éléments */
+  overflow: hidden; /* Permet le défilement horizontal */
+  margin: 1%;
+  
+}
+
+/* article - article - article - article */
+
+  /*  ---- style page article ----  */
+
+  #titre_haut {
+    color : white;
+    width: 50%;
+    margin: 0 auto;
+    font-size:250%;
+    font-family: 'Montserrat', sans-serif;
+
+  }
+  
+  .img_article {
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    align-items: center;
+    display: block;
+    margin-left: 25%;
+    margin-right: 50%;
+    width: 50%;
+  }
+
+.video_extrai{
+  border-radius: 10px; /* Arrondit les coins de l'image */
+  border: 2px solid #ddd;
+  display: block; /* Permet de centrer la vidéo */
+  margin-left: auto; /* Centre la vidéo horizontalement */
+  margin-right: auto; /* Centre la vidéo horizontalement */
+}
+
+  #description_article {
+    font-family: 'Arial', sans-serif; 
+    font-size: 12px; 
+    line-height: 1.6; /* Espacement entre les lignes  */
+    color: #333; /* Couleur de texte  */
+    margin-bottom: 20px; 
+    margin-right: 20px;
+    text-align: justify; /* Aligne le texte pour un rendu propre */
+    padding: 10px; /* Ajoute un léger espace interne */
+    border-left: 4px solid #007BFF; /* Ajoute une bordure colorée à gauche */
+    background-color: #d9d9d9; 
+    border-radius: 5px; /* Arrondit les coins  */    
+    max-width: 100%; /* Limite la largeur maximale */
+    box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur totale */
+    overflow: hidden; /* Gère le débordement */
+  }
+
+  .container_article {
+    margin-left: 28px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    /* border: 1px dashed red; */
+  }
+
+  .container_article_texet {  
+    color:azure;
+    font-size: 25px;
+  }
+
+  .stars {
+    font-size: 2rem;
+    color: #FFD700; /* Or couleur dorée pour les étoiles */
+}
+.empty {
+    color: #ddd; /* Couleur pour les étoiles vides */
+}
+
+/* Applique l'effet hover seulement sur le bouton avec l'ID 'bouton-special' */
+#add_pagnier:hover {
+  background-color: rgba(0, 47, 255, 0.8); /* Changement de couleur de fond au survol */
+  border-color: rgba(0, 191, 255, 0.8); /* Changer aussi la bordure */
+}
+
+/* footer - footer - footer - footer */
+footer .footer {
+  background-color: rgb(53, 51, 51);
+  padding: 100px 0;
+  width: 100%;
+  margin-bottom: 2%;
+}
+
+/* Conteneur du footer */
+.footcontainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Organisation des colonnes */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Ajustement des colonnes */
+.footer-col {
+  flex: 1;
+  min-width: 250px;
+  padding: 20px;
+}
+
+.footer-col h4 {
+  font-size: 18px;
+  color: white;
+  text-transform: capitalize;
+  margin-bottom: 30px;
+  font-weight: 500;
+  position: relative;
+}
+
+.footer-col h4::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  background-color: #4452aa;
+  height: 2px;
+  box-sizing: border-box;
+  width: 50px;
+}
+
+.footer-col ul li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  font-size: 16px;
+  text-transform: capitalize;
+  color: white;
+  text-decoration: none;
+  font-weight: 300;
+  color: gray;
+  display: block;
+  transition: all 0.3s ease 0s;
+}
+
+.footer-col ul li a:hover {
+  color: white;
+  padding-left: 10px;
+}
+
+.footer-col .social-links a {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 0px 10px 10px 0;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: white;
+  transition: all 0.3s ease 0s;
+}
+
+.footer-col .social-links a:hover {
+  /* color: #24262b; */
+  background-color: white;
 }
