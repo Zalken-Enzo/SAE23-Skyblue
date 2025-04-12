@@ -35,15 +35,15 @@
 
         <section>
             <div class="panier">
-            <h2>MON PANIER</h2>
+            <h2 class="hpanier" >MON PANIER</h2>
             <div class="article-container">
             <!-- Articles -->
                 <div class="article">
                 <?php if (!empty($produits['nomProduit'])): ?>
                     <?php for ($i = 0; $i < count($produits['nomProduit']); $i++): ?>
                                 
-                            <form method="post">
-                            	<span>
+                            <form class="panier" method="post">
+                            	<span class="spanier">
                                     <?= htmlspecialchars($produits['nomProduit'][$i]) ?>
                                     <?= number_format($produits['prixProduit'][$i], 2) ?> €
                                 </span><br>

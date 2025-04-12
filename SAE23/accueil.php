@@ -60,7 +60,7 @@
 
         <!-- SQL -->
         <?php
-        $sql_film = 'SELECT * FROM article WHERE type = "série" ORDER BY "sortie" DESC LIMIT 5';
+        $sql_film = 'SELECT * FROM article WHERE type = "film" ORDER BY "sortie" DESC LIMIT 5';
         include 'include/database.php';
         $response_film = $connexion ->query($sql_film);?>
 

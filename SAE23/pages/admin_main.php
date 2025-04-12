@@ -10,106 +10,87 @@
 </head>
 
 <body>
-	<div class="centrer">
-        <input  type="text" class="search-bar" id="searchBarAdmin"placeholder="Rechercher un article par ID ou NOM" />
+    <div class="centrer">
+        <input type="text" class="search-bar" id="searchBarAdmin" placeholder="Rechercher un article par ID ou NOM" />
     </div>
-<!-- Début du conteneur central -->
-<div class="colonneCentraleAdmin">
-		<!-- Début de la boite standardisé -->
-		<div class="boiteStandardAdmin">
-		<div class="colonneAdminMain">
-			<div class="itemAdmin" id="photoAdminMain">
-				photo
-			</div>
-</div>
-<div class="colonneAdminMain">
-			<div class="itemAdmin" id="nomAdminMain">
-			Game of Thrones - Saison 3
-			</div>
-			<div class="itemAdmin" id="idAdminMain">
-				id article
-			</div>
-			<div class="itemAdmin" id="anneeAdminMain">
-				année  
-			</div>
-			<div class="itemAdmin" id="dureeAdminMain">
-				durée
-			</div>
-			<div class="itemAdmin" id="prixAdminMain">
-				prix
-			</div>
-			<div class="itemAdmin" id="promoAdminMain">
-				promo
-			</div>
-			<div class="itemAdmin" id="qteAdminMain">
-				qte
-			</div>
-			<div class="itemAdmin" id="typeAdminMain">
-				type
-			</div>
-			<div class="itemAdmin" id="genreAdminMain">
-				genre
-			</div>
-			<div class="itemAdmin" id="modifierAdminMainDiv">
-				<button id="modifierAdminMain"> Modifier </button>
-			</div>
-</div>
-			<div class="itemAdmin" id="descriptionAdminMain" >description
-			</div>
-			
-		
-		</div>
-		
-		<!-- Fin de la boite standard -->
-		 <!-- Début de la boite standardisé -->
-		<div class="boiteStandardAdmin">
-		<div class="colonneAdminMain">
-			<div class="itemAdmin" id="photoAdminMain">
-				photo
-			</div>
-</div>
-<div class="colonneAdminMain">
-			<div class="itemAdmin" id="nomAdminMain">
-			Game of Thrones - Saison 3
-			</div>
-			<div class="itemAdmin" id="idAdminMain">
-				id article
-			</div>
-			<div class="itemAdmin" id="anneeAdminMain">
-				année  
-			</div>
-			<div class="itemAdmin" id="dureeAdminMain">
-				durée
-			</div>
-			<div class="itemAdmin" id="prixAdminMain">
-				prix
-			</div>
-			<div class="itemAdmin" id="promoAdminMain">
-				promo
-			</div>
-			<div class="itemAdmin" id="qteAdminMain">
-				qte
-			</div>
-			<div class="itemAdmin" id="typeAdminMain">
-				type
-			</div>
-			<div class="itemAdmin" id="genreAdminMain">
-				genre
-			</div>
-			<div class="itemAdmin" id="modifierAdminMainDiv">
-				<button id="modifierAdminMain"> Modifier </button>
-			</div>
-</div>
-			<div class="itemAdmin" id="descriptionAdminMain" >description
-			</div>
-			
-		
-		</div>
-		
-		<!-- Fin de la boite standard -->
-	</div>
-<!-- Fin du conteneur central -->
-<?php include '../include/pieds.html'; ?>
+    <!-- Début du conteneur central -->
+    <div class="colonneCentraleAdmin">
+
+        <?php
+    $sql_article = "SELECT * FROM article";
+    include '../include/database.php';
+    $response = $connexion ->query($sql_article);?>
+
+
+        <?php foreach($response AS $r): ?>
+        <!-- Début de la boite standardisé -->
+        <div class="boiteStandardAdmin">
+            <div class="colonneAdminMain">
+                <div class="itemAdmin" id="photoAdminMain">
+                    photo
+                </div>
+            </div>
+
+            <div class="colonneAdminMain">
+                <div class="itemAdmin" id="nomAdminMain">
+                    <?php echo $r['titre']; ?>
+                </div>
+
+                <div class="itemAdmin" id="idAdminMain">
+                    <?php echo $r['id_article']; ?>
+                </div>
+
+                <div class="itemAdmin" id="anneeAdminMain">
+                    <?php echo $r['sortie']; ?>
+                </div>
+
+                <div class="itemAdmin" id="dureeAdminMain">
+                    <?php echo $r['duree']; ?> min
+                </div>
+
+                <div class="itemAdmin" id="prixAdminMain">
+                    <?php echo $r['prix']; ?>
+                </div>
+
+                <div class="itemAdmin" id="promoAdminMain">
+                    promo
+                </div>
+
+                <div class="itemAdmin" id="qteAdminMain">
+                    <?php echo $r['quantite']; ?>
+                </div>
+
+                <div class="itemAdmin" id="typeAdminMain">
+                    <?php echo $r['type']; ?>
+                </div>
+                <div class="itemAdmin" id="genreAdminMain">
+                    <?php echo $r['categorie']; ?>
+                </div>
+
+                <div class="itemAdmin" id="modifierAdminMainDiv">
+                    <button id="modifierAdminMain"> Modifier </button>
+
+                    <form action="/SAE23/traitphp/supprimer_media.php" method="POST" class="delete-form">
+                        <input type="hidden" name="id_article" value="<?php echo $r['id_article']; ?>">
+                        <button type="submit" class="modifierAdminMain"><i class="fas fa-trash"></i></button>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="itemAdmin" id="descriptionAdminMain">
+                <?php echo $r['description']; ?>
+            </div>
+
+
+        </div>
+        <?php endforeach; ?>
+
+
+
+    </div>
+    <!-- Fin du conteneur central -->
+    <?php include '../include/pieds.html'; ?>
 
 </body>
 

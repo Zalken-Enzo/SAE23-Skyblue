@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel - Ajouter un Article</title>
     <link rel="stylesheet" href="style.css">
-    <?php include('../traitement/entete.html'); ?>
+    <?php include('../include/entete.html'); ?>
 </head>
 
 <body>
@@ -24,28 +24,23 @@
         <div class='conteneurObjetsAdmin'>
             <!-- Nom de l'article  --> 
             <div class='objetsAdmin'>
-                <label for="nomAdmin">Nom de l'article</label>
-                <input class='search-bar' type="text" id="nomAdmin" name="nomAdmin">
+                <input class='search-bar' type="text" id="nomAdmin" name="nomAdmin" placeholder="Nom">
             </div>
             <!-- Photo de l'article  -->
             <div class='objetsAdmin'>
-                <label for="photoAdmin">Photo:</label>
-                <input type="file" id="photoAdmin" name="photoAdmin">
+                <input type="file" id="photoAdmin" name="photoAdmin" >
             </div>
             <!-- Prix de l'article  -->
             <div class='objetsAdmin'>
-                <label for="prixAdmin">Prix de l'article</label>
-                <input class='search-bar' type="text" id="prixAdmin" name="prixAdmin">
+                <input class='search-bar' type="text" id="prixAdmin" name="prixAdmin" placeholder="Prix">
             </div>
             <!-- Quantité -->
             <div class='objetsAdmin'>
-                <label for="qteAdmin">Quantité</label>
-                <input class='search-bar' type="text" id="qteAdmin" name="qteAdmin">
+                <input class='search-bar' type="text" id="qteAdmin" name="qteAdmin" placeholder="Quantité">
             </div>
             <!-- Genre de l'article -->
             <div class='objetsAdmin'>
-                <label for="genreAdmin">Choisir le Genre :</label>
-                <select class='search-bar' name="genreAdmin" id="genreAdmin">
+                <select class='search-bar' name="genreAdmin" id="genreAdmin" placeholder="Genre">
                     <option value="Action">Action</option>
                     <option value="Aventure">Aventure</option>
                     <option value="Comédie">Comédie</option>
@@ -62,34 +57,31 @@
             </div>
             <!-- Promotion de l'article -->
             <div class='objetsAdmin'>
-                <label for="promotionAdmin">Promotion en %</label>
-                <input class='search-bar' type="text" id="promotionAdmin" name="promotionAdmin">
+                <input class='search-bar' type="text" id="promotionAdmin" name="promotionAdmin" placeholder="Promotion">
             </div>
             <!-- Description de l'article -->
             <div class='objetsAdmin'>
-                <label for="descriptionAdmin">Description article</label>
-                <input class='search-bar' type="text" id="descriptionAdmin" name="descriptionAdmin">
+                <input class='search-bar' type="text" id="descriptionAdmin" name="descriptionAdmin" placeholder="Description">
             </div>
             <!-- Type : Film / Série-->
             <div class='objetsAdmin'>
-                <label for="typeAdmin">Choisir un type :</label>
-                <select class='search-bar' name="typeAdmin" id="typeAdmin">
+                <select class='search-bar' name="typeAdmin" id="typeAdmin" placeholder="Type">
                     <option value="Film">Film</option>
                     <option value="Série">Série</option>
                 </select>
             </div>
             <!-- Année de Sortie -->
             <div class='objetsAdmin'>
-                <label for="anneeSortieAdmin">Année de sortie :</label>
-                <input class='search-bar' type="text" id="anneeSortieAdmin" name="anneeSortieAdmin">
+                <input class='search-bar' type="text" id="anneeSortieAdmin" name="anneeSortieAdmin" placeholder="Année de Sortie">
             </div>
 			<!-- durée du film -->
             <div class='objetsAdmin'>
-                <label for="dureeAdmin">durée du film :</label>
-                <input class='search-bar' type="text" id="dureeAdmin" name="dureeAdmin">
+                <input class='search-bar' type="text" id="dureeAdmin" name="dureeAdmin" placeholder="Durée (en minutes)">
             </div>
             <!-- Bouton de validation du formulaire d'ajout d'articles -->
             <button type='submit' id="validerAdmin">Valider</button>
+            <!-- Bouton de retour à la page d'administration -->
+            <button type='button' id="validerAdmin" onclick="window.location.href='admin.php'">Retour</button>
         </div>
     </form>
 
@@ -98,3 +90,4 @@
 </body>
 
 </html>
+
