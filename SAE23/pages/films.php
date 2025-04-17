@@ -72,6 +72,7 @@ $response = $connexion->query($sql_article);
                 <option value="science-fiction" <?= $genre == 'science-fiction' ? 'selected' : '' ?>>Science-fiction</option>
                 <option value="fantaisie" <?= $genre == 'fantaisie' ? 'selected' : '' ?>>Fantaisie</option>
                 <option value="horreur" <?= $genre == 'horreur' ? 'selected' : '' ?>>Horreur</option>
+                <option value="aventure" <?= $genre == 'aventure' ? 'selected' : '' ?>>aventure</option>
             </select>
         </div>
 
@@ -113,7 +114,7 @@ $response = $connexion->query($sql_article);
 <div class="categories-container">
     <?php foreach($response as $r): ?>
         <div class="box">
-            <img class="boximg" src="../images/chihiro.webp" alt="Image de <?php echo htmlspecialchars($r['titre']); ?>" />
+        <img class="boximg" src="../images/<?php echo $r['image']; ?>" alt="Image de <?php echo htmlspecialchars($r['titre']); ?>" />
             <div class="box-content">
                 <h2><?php echo htmlspecialchars($r['titre']); ?></h2>
                 <span><?php echo $r['prix']; ?>€</span>

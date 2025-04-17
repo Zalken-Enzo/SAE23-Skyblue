@@ -1,4 +1,4 @@
-/* CSS de style.css SAE23 - Skyvblue */
+/* CSS de style.css */
 /* Reset CSS */
 * {
   margin: 0;
@@ -8,7 +8,8 @@
   font-family: "Montserrat", sans-serif;
 }
 
-/* entete.html // header - entete.html // header - entete.html // header */
+/* entete.html // header */
+
 li,
 a,
 button,
@@ -24,9 +25,9 @@ header {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background-color: transparent; /* Fond transparent de l'en-tête */
+  background: linear-gradient(180deg, #24252a, 70%, transparent); 
   backdrop-filter: blur(1px); /* Flou de fond */
-  height: 80px;
+  height: 100px;
   position: sticky;
   width: 100%;
   top: 0%;
@@ -35,9 +36,9 @@ header {
 
 .logo {
   cursor: pointer;
-  width: 10%;
+  width: 9%;
   margin-left: 5%;
-  margin-bottom: 0.6%; 
+  margin-bottom: 1%; 
   background-color: transparent;
 }
 
@@ -47,11 +48,11 @@ header {
   align-items: center;
   background-color: rgba(0, 0, 0, 0);
   width: 40%;
-  margin-bottom: 0.6%; 
 }
 
 nav {
   background-color: rgba(0, 0, 0, 0);
+  margin-bottom: 1%; 
 }
 
 .nav li {
@@ -63,43 +64,36 @@ nav {
 .nav li a {
   transition: all 0.3s ease 0s;
   text-decoration: none;
-  padding: 5px 10px;
-  background-color: rgba(255, 255, 255, 0.1); /* Transparence appliquée ici */
+  padding: 8px 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 5px;
-  color: rgb(255, 255, 255); /* Texte en blanc */
+  color: rgb(255, 255, 255);
+  font-size: 1.2em;
 }
 
-.nav li a:hover {
-  color: #4452aa; /* Changement de couleur au survol */
-}
-
-/* Bouton container */
 .button-container {
   display: flex;
-  gap: 20%;
+  gap: 10%;
   background-color: rgba(0, 0, 0, 0);
-  width: 30%;
+  width: 20%;
   margin-left: 5%;
-  margin-right: 5%;
-  margin-bottom: 0.6%; 
-
+  margin-bottom: 1%;
 }
 
 .button-container button {
-  background-color: rgba(255, 255, 255, 0.1); /* Fond transparent */
+  background-color: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  font-size: 14px;
   padding: 9px 25px;
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease 0s;
-  width: auto;
-  
+  font-size: 1.2em;
 }
 
-.button-container button:hover {
-  background-color: #4452aa; /* Fond  au survol */
-  border-color: #4452aa;
+.button-container button:hover,
+.nav li a:hover {
+  background-color: #4452aa;
 }
 
 .sgn {
@@ -110,30 +104,30 @@ nav {
 
 button {
   padding: 9px 25px;
-  border: 1px solid rgba(255, 255, 255, 0.3); /* Bordure légère */
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease 0s;
-  background-color: rgba(255, 255, 255, 0.1); /* Fond transparent */
+  background-color: rgba(255, 255, 255, 0.1);
   color: white;
   font-size: 14px;
-  box-sizing: border-box; /* Assurer que les dimensions incluent la bordure */
+  box-sizing: border-box;
 }
 
-.search{
-  background-color : rgba(0,0,0,0);
+.search {
+  background-color: rgba(0, 0, 0, 0);
+  margin-bottom: 1%;
+  width: 20%;
 }
 
 .search-bar {
-  padding: 8px 15px;
+  padding: 9px 15px;
   border-radius: 50px;
-  border: none;
-  outline: none;
   color: white;
   transition: all 0.3s ease 0s;
   background-color: rgba(255, 255, 255, 0.1);
-  margin-left: 20px;
-  margin-right: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 120%;
 }
 
 .search-bar::placeholder {
@@ -602,10 +596,7 @@ header a.sgn:nth-of-type(3) {
 }
 
 /* ADMIN *//* ADMIN *//* ADMIN *//* ADMIN *//* ADMIN *//* ADMIN *//* ADMIN *//* ADMIN *//* ADMIN *//* ADMIN *//* ADMIN *//* ADMIN *//* ADMIN *//* ADMIN *//* ADMIN *//* ADMIN *//* ADMIN *//* ADMIN */
-/* Barre de recherche */
-#barreDeRechercheAdmin {
-  text-align: center;
-}
+
 
 /* Colonne centrale admin */
 .colonneCentraleAdmin {
@@ -693,81 +684,80 @@ header a.sgn:nth-of-type(3) {
   background-color: none;
 }
 
-/* Centrer le texte */
-.centrer {
+/* Conteneur du tableau */
+.admin-table {
+  width: 90%;
+  margin: auto;
+  border-collapse: collapse;
+  background-color: #ffffff10;
+  color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.admin-table th, .admin-table td {
+  padding: 12px;
   text-align: center;
+  border-bottom: 1px solid #ffffff20;
 }
 
-/* Boite standard admin */
-.boiteStandardAdmin {
+.admin-table img {
+  max-width: 60px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.admin-table th {
+  background-color: #4452aa;
+}
+
+.admin-table tr:hover {
+  background-color: #ffffff08;
+}
+
+/* Section des boutons */
+.action-buttons {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* Centrer le contenu */
-  align-items: stretch;
-  margin: 25px auto 15px;
-  padding: 10px;
-  width: 80%;
-  background-color: black;
-  list-style-type: none;
-  border-radius: 20px;
+  justify-content: center;
+  gap: 10px;
 }
 
-/* Item admin */
-.itemAdmin {
-  margin: 5px;
-  padding: 5px;
-  border-radius: 15px;
-  background-color: #24252a;
-  color: white;
+/* Bouton "Modifier" */
+.btn-modifier {
+  padding: 6px 12px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Admin main */
-#photoAdminMain {
-  width: 250px;
-  height: 350px;
+.btn-modifier:hover {
+  background-color: #218838;
+  transform: scale(1.05);
 }
 
-#descriptionAdminMain {
-  padding: 15px;
-  flex-grow: 2;
-  width: 60%;
-  white-space: pre-wrap;
-  word-wrap: break-word;
+/* Bouton "Supprimer" */
+.btn-supprimer {
+  padding: 6px 12px;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Colonne principale admin */
-.colonneAdminMain {
-  background-color: transparent;
-  align-items: stretch;
-  flex-direction: column;
+.btn-supprimer:hover {
+  background-color: #c82333;
+  transform: scale(1.05);
 }
 
-/* Barre de recherche admin */
-#searchBarAdmin {
-  margin-top: 15px;
-  width: 300px;
-}
-
-/* Section modifier admin */
-#modifierAdminMainDiv {
-  background-color: transparent;
-}
-
-#modifierAdminMain {
-  background-color: #24252a;
-  color: #4d5fdf;
-  border: 1px solid black;
-  box-shadow: 3px 3px;
-  transition: all 0.3s ease;
-}
-
-#modifierAdminMain:hover {
-  background-color: #343941;
-  border: 1px solid black;
-  box-shadow: none;
-  transform: translate(3px, 3px);
-  border-color: rgba(0, 0, 0, 0.8);
-}
 /* Panier - Panier - Panier */
 
 section {
@@ -1091,4 +1081,205 @@ footer .footer {
 .footer-col .social-links a:hover {
   /* color: #24262b; */
   background-color: white;
+}
+
+/* CSS de panier.php */
+/* Panier */
+.container_panier {
+  display: flex;
+  padding: 2%;
+  flex-direction: row; /* Alignement vertical */
+  justify-content: space-around; /* Espacement entre les éléments */
+  color: #343a40; /* Couleur du texte du titre */
+  flex-direction: row;
+}
+
+aside {
+    
+  width: 33%; /* Largeur totale */
+  height: 100%; /* Hauteur totale */
+  background-color: #f8f9fa; /* Couleur de fond de la section totale */
+  position: sticky; /* Rendre la section totale collante */
+  color: #343a40; /* Couleur du texte du titre */
+  border-radius: 5px; /* Coins arrondis */
+}
+
+aside h2 {
+  font-size: 24px; /* Taille de la police pour le titre */
+  background-color: #f8f9fa;
+  color: #343a40; /* Couleur du texte du titre */
+  margin: 1%;
+}
+
+.panier{
+  flex-direction: column; /* Alignement horizontal */
+  width: 65%; /* Largeur du panier */
+  align-items: center; /* Alignement vertical centré */
+  margin-bottom: 20px; /* Marge inférieure pour espacer les éléments */
+  padding: 10px;
+  background-color: #f8f9fa; /* Couleur de fond blanche pour le panier */
+  height: 100%; /* Hauteur du panier */
+}
+
+
+.paiement_panier form {
+  background-color: #f8f9fa;
+  border-radius: 5px;
+}
+
+.select_panier, .option_panier {
+  margin: 1%;
+  border: 1px solid #343a40; /* Bordure du sélecteur */
+  background-color: #ffffff; /* Couleur de fond blanche pour le sélecteur */
+  color: #343a40; /* Couleur du texte du sélecteur */
+  width: 20%;
+  padding: 9px 25px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.form_panier {
+  background-color: #f8f9fa; /* Couleur de fond blanche pour le panier */
+  padding: 1%; /* Espacement interne */
+  border: solid #24252a 1px;
+  margin-top: 1%;
+}
+
+.form_panier span {
+  font-size: 1.5em; /* Taille de la police pour le texte */
+  margin: 1%;
+  color: #343a40; /* Couleur du texte du titre */
+  background-color: #f8f9fa;
+  
+}
+
+.form_paiement {
+  background-color: #f8f9fa; /* Couleur de fond blanche pour le panier */
+  border-radius: 5px; /* Coins arrondis */
+  padding: 1%; /* Espacement interne */
+}
+
+p {
+  font-size: 18px; /* Taille de la police pour le texte */
+  color: #343a40; /* Couleur du texte du titre */
+  background-color: #f8f9fa;
+  padding: 2%; /* Espacement interne */
+}
+
+
+.button_panier {
+  padding: 9px 25px;
+  margin-left: 1%;
+  border: 2px solid #343a40;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  font-size: 14px;
+  box-sizing: border-box; /* Assurer que les dimensions incluent la bordure */
+  background-color: #4d5fdf; 
+}
+
+.button_panier:hover {
+  background-color: #343a40;
+  border-color: #f8f9fa;
+  color: #f8f9fa; /* Changement de couleur de fond au survol */
+}
+
+.button_paiement {
+  background-color: #4d5fdf;
+  width: 50%;
+  margin: 5% 10% 2% 10%;
+  margin-left: 25%;
+}
+
+.button_paiement:hover {
+  background-color: #343a40;
+  border-color: #000000;
+  color: #f8f9fa; /* Changement de couleur de fond au survol */
+  font-style: bold;
+}
+
+
+.img_panier {
+  width: 20%; /* Largeur de l'image */
+  height: 100%;
+  margin: 1%;
+  border: #24252a solid;
+  background-color: #f8f9fa; /* Couleur de fond blanche pour l'image */
+}
+
+.img_menu {
+  width: 100%; /* Largeur de l'image */
+  height: 100%;
+  margin: 1%;
+  border: #24252a solid;
+}
+
+.center .wrapper{
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%;
+  background-color: #f8f9fa;
+  padding: 1%;
+}
+
+
+.scrollable .inner {
+  display: flex;
+  gap: 1em;
+  overflow-x: auto;
+  scroll-behavior: auto;
+  padding-bottom: 1em;
+  background-color: #f8f9fa; /* Couleur de fond blanche pour le conteneur */
+}
+
+.inner::-webkit-scrollbar {
+  height: 8px;
+}
+
+.inner::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.card {
+  min-width: 20em;
+  border-radius: 1em;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+  background-color: #f8f9fa;
+}
+
+.card img {
+  width: 100%;
+  height: 80%;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+  object-fit: cover;
+}
+
+.card .content {
+  padding: 1em;
+  text-align: center;
+  background-color: #f8f9fa;
+  border-radius: 1em;
+}
+
+.content form, p {
+  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: row;
+  gap: 10%;
+}
+
+
+.card .content h1 {
+  font-size: 1.25rem;
+  color: #343a40; /* Couleur du texte du titre */
+  background-color: #f8f9fa;
+}
+
+.card .content h3 {
+  font-size: 0.9rem;
+  color: #343a40; /* Couleur du texte du titre */
+  background-color: #f8f9fa;
 }

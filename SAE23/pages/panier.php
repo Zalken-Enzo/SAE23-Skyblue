@@ -1,137 +1,138 @@
-<?php session_start(); ?>
+<?php
+session_start();
+include '../traitement/function_panier.php';
+creationPanier();
+
+// Gestion des actions
+if (isset($_POST['action'])) {
+    if ($_POST['action'] === 'modifier' && isset($_POST['titre'], $_POST['quantity'])) {
+        modifierQteArticle($_POST['titre'], (int)$_POST['quantity']);
+    }
+    if ($_POST['action'] === 'supprimer' && isset($_POST['titre'])) {
+        supprimerArticle($_POST['titre']);
+    }
+}
+
+// Gestion de l'ajout au panier
+if (isset($_POST['ajouter'])) {
+    ajouterArticle($_POST['titre'], 1, $_POST['prix'], $_POST['image'], $_POST['stock']); 
+}
+
+$produits = $_SESSION['panier'];
+
+include '../include/database.php';
+
+// Requêtes pour les derniers articles
+$sql_film = 'SELECT * FROM article WHERE type = "film" ORDER BY annee';
+$response_film = $connexion->query($sql_film);
+
+$sql_series = 'SELECT * FROM article WHERE type = "série" ORDER BY annee';
+$response_series = $connexion->query($sql_series);
+
+// Requête pour les quantités disponibles dans le panier
+$titresPanier = array_map(function($t) use ($connexion) {
+    return $connexion->quote($t);
+}, $produits['titre'] ?? []);
+$titresListe = implode(',', $titresPanier);
+$quantitesDispo = [];
+if (!empty($titresListe)) {
+    $sql = "SELECT titre, quantite FROM article WHERE titre IN ($titresListe)";
+    $resultats = $connexion->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($resultats as $row) {
+        $quantitesDispo[$row['titre']] = (int)$row['quantite'];
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Panier | SkyBlue</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
-
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/png" href="../main/images/CD.png">
 </head>
+<body>
+<?php include "../include/entete.html"; ?>
 
-<body> 
-    <?php include "../include/entete.html"; ?>
-
-        <?php
-        // Inclusion des fichiers nécessaires
-        include '../traitement/function_panier.php';
-        
-        // Création du panier si non existant
-        creationPanier();
-        
-        // Gestion des actions utilisateur
-        if (isset($_POST['action'])) {
-            if ($_POST['action'] == 'modifier' && isset($_POST['nomProduit'], $_POST['qteProduit'])) {
-                modifierQteArticle($_POST['nomProduit'], $_POST['qteProduit']);
-            }
-            if ($_POST['action'] == 'supprimer' && isset($_POST['nomProduit'])) {
-                supprimerArticle($_POST['nomProduit']);
-            }
-        }
-        
-        // Récupération des produits du panier
-        $produits = $_SESSION['panier'];
-        ?>
-
-        <section>
-            <div class="panier">
-            <h2 class="hpanier" >MON PANIER</h2>
-            <div class="article-container">
-            <!-- Articles -->
-                <div class="article">
-                <?php if (!empty($produits['nomProduit'])): ?>
-                    <?php for ($i = 0; $i < count($produits['nomProduit']); $i++): ?>
-                                
-                            <form class="panier" method="post">
-                            	<span class="spanier">
-                                    <?= htmlspecialchars($produits['nomProduit'][$i]) ?>
-                                    <?= number_format($produits['prixProduit'][$i], 2) ?> €
-                                </span><br>
-                                <img src="<?= htmlspecialchars($produits['imageProduit'][$i] ?? 'default.jpg') ?>" alt="" class="img_panier"><br>
-                                <!-- Sélection de la quantité avec un menu déroulant -->
-                                <input type="hidden" name="nomProduit" value="<?= htmlspecialchars($produits['nomProduit'][$i]) ?>">
-                                <select name="qteProduit">
-                                <?php for ($j = 1; $j <= 100; $j++): ?>
-                                <option value="<?= $j ?>" <?= ($produits['qteProduit'][$i] == $j) ? 'selected' : '' ?>>
+<section class="container_panier">
+    <aside class="panier">
+        <h2>MON PANIER</h2>
+        <?php if (!empty($produits['titre'])): ?>
+            <?php for ($i = 0; $i < count($produits['titre']); $i++): ?>
+                <?php 
+                $titre = $produits['titre'][$i];
+                $quantiteDisponible = $quantitesDispo[$titre] ?? 1;
+                ?>
+                <form method="post" class="form_panier">
+                    <span>
+                        <?= htmlspecialchars($titre) ?> - 
+                        <?= number_format((float)$produits['prix'][$i], 2) ?> €
+                    </span><br>
+                    <img src="<?= htmlspecialchars($produits['image'][$i]) ?>" alt="Image de l'article" class="img_panier"><br>
+                    <input type="hidden" name="titre" value="<?= htmlspecialchars($titre) ?>">
+                    <select name="quantity" class="select_panier">
+                        <?php for ($j = 1; $j <= $quantiteDisponible; $j++): ?>
+                            <option value="<?= $j ?>" <?= ($produits['quantity'][$i] == $j) ? 'selected' : '' ?> class="option_panier">
                                 <?= $j ?>
-                                </option>
-                                <?php endfor; ?>
-                                </select>
-                                    <button type="submit" name="action" value="modifier">Modifier</button>
-                                    <button type="submit" name="action" value="supprimer">Supprimer</button>
-                                </form>
-                    
-                    <?php endfor; ?>
-                </div>
-                <?php else: ?>
-                    <p>Votre panier est vide.</p>
-                <?php endif; ?>
+                            </option>
+                        <?php endfor; ?>
+                    </select>
 
-                <p>Sous-Total : <?= number_format(montantTotal(), 2) ?> €</p>
+                    <button type="submit" name="action" value="modifier" class="button_panier">Modifier</button>
+                    <button type="submit" name="action" value="supprimer" class="button_panier">Supprimer</button>
+                </form>
+            <?php endfor; ?>
+        <?php else: ?>
+            <p>Votre panier est vide.</p>
+        <?php endif; ?>
 
-                
-                <div class="carousel-container">
-                    <div class="carousel" id="carousel">
-                        <img src="<?= htmlspecialchars($produits['imageProduit'][$i] ?? 'default.jpg') ?>" alt="" class="img_menu_active">
-                        <img src="<?= htmlspecialchars($produits['imageProduit'][$i] ?? 'default.jpg') ?>" alt="" class="img_menu_active">
-                        <img src="<?= htmlspecialchars($produits['imageProduit'][$i] ?? 'default.jpg') ?>" alt="" class="img_menu_active">
-                        <img src="<?= htmlspecialchars($produits['imageProduit'][$i] ?? 'default.jpg') ?>" alt="" class="img_menu_active">
-                        <img src="<?= htmlspecialchars($produits['imageProduit'][$i] ?? 'default.jpg') ?>" alt="" class="img_menu_active">
-                        <img src="<?= htmlspecialchars($produits['imageProduit'][$i] ?? 'default.jpg') ?>" alt="" class="img_menu_active">
-                        <img src="<?= htmlspecialchars($produits['imageProduit'][$i] ?? 'default.jpg') ?>" alt="" class="img_menu">
-                        <img src="<?= htmlspecialchars($produits['imageProduit'][$i] ?? 'default.jpg') ?>" alt="" class="img_menu">
-                        <img src="<?= htmlspecialchars($produits['imageProduit'][$i] ?? 'default.jpg') ?>" alt="" class="img_menu">
-                        <img src="<?= htmlspecialchars($produits['imageProduit'][$i] ?? 'default.jpg') ?>" alt="" class="img_menu">
-                        <img src="<?= htmlspecialchars($produits['imageProduit'][$i] ?? 'default.jpg') ?>" alt="" class="img_menu">
-                        <img src="<?= htmlspecialchars($produits['imageProduit'][$i] ?? 'default.jpg') ?>" alt="" class="img_menu">
-                        <img src="<?= htmlspecialchars($produits['imageProduit'][$i] ?? 'default.jpg') ?>" alt="" class="img_menu">
-                        <img src="<?= htmlspecialchars($produits['imageProduit'][$i] ?? 'default.jpg') ?>" alt="" class="img_menu">
-                        <img src="<?= htmlspecialchars($produits['imageProduit'][$i] ?? 'default.jpg') ?>" alt="" class="img_menu">
-                        <img src="<?= htmlspecialchars($produits['imageProduit'][$i] ?? 'default.jpg') ?>" alt="" class="img_menu">
+        <p>Sous-Total : <?= number_format(montantTotal(), 2) ?> €</p>
+
+        <div class="center">
+            <div class="wrapper scrollable">
+                <div class="inner">
+                <?php foreach($response_film as $rf): ?>
+                    <div class="card">
+                        <img src="<?= $rf['imageURL'] ?>" alt="">
+                        <div class="content">
+                            <form method="post">
+                                <input type="hidden" name="titre" value="<?= $rf['titre'] ?>">
+                                <input type="hidden" name="prix" value="<?= $rf['prix'] ?>">
+                                <input type="hidden" name="stock" value="<?= $rf['quantite'] ?>">
+                                <input type="hidden" name="image" value="<?= $rf['imageURL'] ?>">
+                                <button type="submit" name="ajouter" class="add-to-cart"><i class="fa-solid fa-cart-shopping"></i></button>
+                                <p><?= $rf['titre'] ?> <br> <?= $rf['prix'] ?> €</p>
+                            </form>
+                        </div>
                     </div>
-                </div>
-
-                <script>
-                    let index = 0;
-                    function scrollLeft() {
-                        if (index > 0) {
-                            index--;
-                            updateCarousel();
-                        }
-                    }
-                    function scrollRight() {
-                        if (index < document.querySelectorAll('.carousel img').length - 3) {
-                            index++;
-                            updateCarousel();
-                        }
-                    }
-                    function updateCarousel() {
-                        document.getElementById('carousel').style.transform = `translateX(-${index * 220}px)`;
-                    }
-
-                    document.querySelector('.carousel-container').addEventListener('wheel', (event) => {
-                        if (event.deltaY > 0) {
-                            scrollRight();
-                        } else {
-                            scrollLeft();
-                        }
-                        event.preventDefault();
-                    });
-                </script>
-                </div>
-                </div>
-            <div class="paiement">
-                <h2>Total</h2>
-            <!-- Total et paiement -->
-                
-                <p>Sous-Total : <?= number_format(montantTotal(), 2) ?> €</p>
-                <p>Frais de port : 5.00 €</p>
-                <p>Total : <?= number_format(montantTotal() + 5.00, 2) ?> €</p>
-                <button type="submit" name="action" value="supprimer" class="button_paiement">PAIEMENT</button>
-                
+                <?php endforeach; ?>
+                </div>     
             </div>
-        </section>
-        <?php include "../include/pieds.html"; ?>
-        
-    </body>
+        </div>
+
+        <script>
+        const inner = document.querySelector('.inner');
+        inner.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            inner.scrollLeft += e.deltaY;
+        });
+        </script>
+
+    </aside>
+
+    <aside class="paiement_panier">
+        <h2>TOTAL</h2>
+        <p>Sous-Total : <?= number_format(montantTotal(), 2) ?> €</p>
+        <p>Frais de port : 5.00 €</p>
+        <p>Total : <?= number_format(montantTotal() + 5.00, 2) ?> €</p>
+        <form action="/SAE23/pages/paiement.php" method="post">
+            <button type="submit" class="button_paiement">PAIEMENT</button>
+        </form>
+    </aside>
+</section>
+
+<?php include "../include/pieds.html"; ?>
+</body>
 </html>

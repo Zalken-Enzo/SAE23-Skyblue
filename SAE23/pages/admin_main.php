@@ -1,97 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel - Ajouter un Article</title>
+    <title>Admin Panel - Gérer les Articles</title>
     <link rel="stylesheet" href="../style.css">
     <?php include '../include/entete.html'; ?>
 </head>
 
 <body>
-    <div class="centrer">
-        <input type="text" class="search-bar" id="searchBarAdmin" placeholder="Rechercher un article par ID ou NOM" />
-    </div>
-    <!-- Début du conteneur central -->
-    <div class="colonneCentraleAdmin">
+  <!-- Liste des médias -->
+  <div class="media-list">
+    <h2 style="text-align:center; margin: 30px 0;">Catalogue actuel</h2>
 
-        <?php
+    <?php
     $sql_article = "SELECT * FROM article";
     include '../include/database.php';
-    $response = $connexion ->query($sql_article);?>
+    $response = $connexion ->query($sql_article);
+    ?>
 
-
-        <?php foreach($response AS $r): ?>
-        <!-- Début de la boite standardisé -->
-        <div class="boiteStandardAdmin">
-            <div class="colonneAdminMain">
-                <div class="itemAdmin" id="photoAdminMain">
-                    photo
-                </div>
-            </div>
-
-            <div class="colonneAdminMain">
-                <div class="itemAdmin" id="nomAdminMain">
-                    <?php echo $r['titre']; ?>
-                </div>
-
-                <div class="itemAdmin" id="idAdminMain">
-                    <?php echo $r['id_article']; ?>
-                </div>
-
-                <div class="itemAdmin" id="anneeAdminMain">
-                    <?php echo $r['sortie']; ?>
-                </div>
-
-                <div class="itemAdmin" id="dureeAdminMain">
-                    <?php echo $r['duree']; ?> min
-                </div>
-
-                <div class="itemAdmin" id="prixAdminMain">
-                    <?php echo $r['prix']; ?>
-                </div>
-
-                <div class="itemAdmin" id="promoAdminMain">
-                    promo
-                </div>
-
-                <div class="itemAdmin" id="qteAdminMain">
-                    <?php echo $r['quantite']; ?>
-                </div>
-
-                <div class="itemAdmin" id="typeAdminMain">
-                    <?php echo $r['type']; ?>
-                </div>
-                <div class="itemAdmin" id="genreAdminMain">
-                    <?php echo $r['categorie']; ?>
-                </div>
-
-                <div class="itemAdmin" id="modifierAdminMainDiv">
-                    <button id="modifierAdminMain"> Modifier </button>
-
-                    <form action="/SAE23/traitphp/supprimer_media.php" method="POST" class="delete-form">
-                        <input type="hidden" name="id_article" value="<?php echo $r['id_article']; ?>">
-                        <button type="submit" class="modifierAdminMain"><i class="fas fa-trash"></i></button>
-                    </form>
-                </div>
-
-            </div>
-
-            <div class="itemAdmin" id="descriptionAdminMain">
-                <?php echo $r['description']; ?>
-            </div>
-
-
-        </div>
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>Titre</th>
+          <th>Type</th>
+          <th>Genre</th>
+          <th>Prix</th>
+          <th>Durée</th>
+          <th>Quantité</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+      <?php foreach($response AS $r): ?>
+        <tr>
+          <td><?php echo $r['titre']; ?></td>
+          <td><?php echo $r['type']; ?></td>
+          <td><?php echo $r['categorie']; ?></td>
+          <td><?php echo $r['prix']; ?> €</td>
+          <td><?php echo $r['duree']; ?> min</td>
+          <td><?php echo $r['quantite']; ?></td>
+          <td class="action-buttons">
+            <!-- Bouton modifier -->
+            <a href="modifier_article.php?id_article=<?php echo $r['id_article']; ?>" class="btn-modifier">Modifier</a>
+            
+            <!-- Formulaire pour supprimer -->
+            <form action="../traitement/supprimer_media.php" method="POST" class="delete-form" style="display:inline;">
+              <input type="hidden" name="id_article" value="<?php echo $r['id_article']; ?>">
+              <button type="submit" class="btn-supprimer"><i class="fas fa-trash"></i> Supprimer</button>
+            </form>
+          </td>
+        </tr>
         <?php endforeach; ?>
+    </tbody>
+    </table>
+    
+  </div>
 
-
-
-    </div>
-    <!-- Fin du conteneur central -->
-    <?php include '../include/pieds.html'; ?>
-
+  <?php include '../include/pieds.html'; ?>
 </body>
 
 </html>

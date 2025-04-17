@@ -20,7 +20,7 @@
 	<div class='titreAdmin'>
 	➕ Ajouter un article 
 	</div>
-	<form class="colonneCentraleAdmin" method="POST" action="ajouter_article.php" enctype="multipart/form-data">
+	<form class="colonneCentraleAdmin" method="POST" action="/SAE23/traitement/ajouter_article.php" enctype="multipart/form-data">
         <div class='conteneurObjetsAdmin'>
             <!-- Nom de l'article  --> 
             <div class='objetsAdmin'>

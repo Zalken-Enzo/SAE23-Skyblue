@@ -113,7 +113,7 @@ $response = $connexion->query($sql_article);
 <div class="categories-container">
     <?php foreach($response as $r): ?>
         <div class="box">
-            <img class="boximg" src="../images/chihiro.webp" alt="Image de <?php echo htmlspecialchars($r['titre']); ?>" />
+        <img class="boximg" src="../images/<?php echo $r['image']; ?>" alt="Image de <?php echo htmlspecialchars($r['titre']); ?>" />
             <div class="box-content">
                 <h2><?php echo htmlspecialchars($r['titre']); ?></h2>
                 <span><?php echo $r['prix']; ?>€</span>
