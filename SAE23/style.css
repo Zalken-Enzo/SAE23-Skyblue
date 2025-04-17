@@ -931,77 +931,73 @@ button:hover {
 
 /* article - article - article - article */
 
-  /*  ---- style page article ----  */
+/*  ---- style page article ----  */
 
-  #titre_haut {
-    color : white;
-    width: 50%;
-    margin: 0 auto;
-    font-size:250%;
-    font-family: 'Montserrat', sans-serif;
+.titre_article {
+  color : white;
+  font-size:250%;
+  font-family: 'Montserrat', sans-serif;
+  margin-left: 2%;
+  margin-bottom: 1%;
+}
 
-  }
-  
-  .img_article {
-    border-radius: 10px;
-    border: 2px solid #ddd;
-    align-items: center;
-    display: block;
-    margin-left: 25%;
-    margin-right: 50%;
-    width: 50%;
-  }
+.img_article {
+  border-radius: 10px;
+  border: 2px solid #ddd;
+  display: block;
+  margin-left: 100px;
+  width: 600px;
+}
 
 .video_extrai{
-  border-radius: 10px; /* Arrondit les coins de l'image */
-  border: 2px solid #ddd;
-  display: block; /* Permet de centrer la vidéo */
-  margin-left: auto; /* Centre la vidéo horizontalement */
-  margin-right: auto; /* Centre la vidéo horizontalement */
+border-radius: 10px; /* Arrondit les coins de l'image */
+border: 2px solid #ddd;
+display: block; /* Permet de centrer la vidéo */
+margin-left: 100px; /* Centre la vidéo horizontalement */
 }
 
-  #description_article {
-    font-family: 'Arial', sans-serif; 
-    font-size: 12px; 
-    line-height: 1.6; /* Espacement entre les lignes  */
-    color: #333; /* Couleur de texte  */
-    margin-bottom: 20px; 
-    margin-right: 20px;
-    text-align: justify; /* Aligne le texte pour un rendu propre */
-    padding: 10px; /* Ajoute un léger espace interne */
-    border-left: 4px solid #007BFF; /* Ajoute une bordure colorée à gauche */
-    background-color: #d9d9d9; 
-    border-radius: 5px; /* Arrondit les coins  */    
-    max-width: 100%; /* Limite la largeur maximale */
-    box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur totale */
-    overflow: hidden; /* Gère le débordement */
-  }
+#description_article {
+  font-family: 'Arial', sans-serif; 
+  font-size: 17px; 
+  line-height: 1.6; /* Espacement entre les lignes  */
+  color: #333; /* Couleur de texte  */
+  margin-bottom: 20px; 
+  margin-right: 20px;
+  text-align: justify; /* Aligne le texte pour un rendu propre */
+  padding: 10px; /* Ajoute un léger espace interne */
+  border-left: 4px solid #007BFF; /* Ajoute une bordure colorée à gauche */
+  background-color: #d9d9d9; 
+  border-radius: 18px; /* Arrondit les coins  */    
+  max-width: 90%; /* Limite la largeur maximale */
+  box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur totale */
+  overflow: hidden; /* Gère le débordement */
+}
 
-  .container_article {
-    margin-left: 28px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
-    /* border: 1px dashed red; */
-  }
+.container_article {
+  margin-left: 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  /* border: 1px dashed red; */
+}
 
-  .container_article_texet {  
-    color:azure;
-    font-size: 25px;
-  }
+.container_article_texet {  
+  color:azure;
+  font-size: 25px;
+}
 
-  .stars {
-    font-size: 2rem;
-    color: #FFD700; /* Or couleur dorée pour les étoiles */
+.stars {
+  font-size: 2rem;
+  color: #FFD700; /* Or couleur dorée pour les étoiles */
 }
 .empty {
-    color: #ddd; /* Couleur pour les étoiles vides */
+  color: #ddd; /* Couleur pour les étoiles vides */
 }
 
 /* Applique l'effet hover seulement sur le bouton avec l'ID 'bouton-special' */
 #add_pagnier:hover {
-  background-color: rgba(0, 47, 255, 0.8); /* Changement de couleur de fond au survol */
-  border-color: rgba(0, 191, 255, 0.8); /* Changer aussi la bordure */
+background-color: rgba(0, 47, 255, 0.8); /* Changement de couleur de fond au survol */
+border-color: rgba(0, 191, 255, 0.8); /* Changer aussi la bordure */
 }
 
 /* footer - footer - footer - footer */

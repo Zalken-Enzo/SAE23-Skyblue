@@ -1,5 +1,5 @@
 <?php
-define('SERVER', 'mysql:server=localhost; dbname=SAE23');
+define('SERVER', 'mysql:server=localhost; dbname=mydb');
 define('USER', 'root');
 define('PASS', '');
 

@@ -11,19 +11,49 @@
 
 <body>
   <header>
-    <?php include '../include/entete.html'; ?>
+    <?php include '../include/entete.html';?>
   </header>
+
+  <?php
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
+
+
+if (isset($_SESSION["id_login"])) {
+  echo '<div class="login-box" style="text-align: center;">
+          <div class="login-header">
+              <header>Inscription</header>
+              <h1>Vous êtes déjà connecté !</h1>
+          
+               <form action="../traitement/logout_execute.php">
+                <br>
+              <br>
+               <button class="submit-btn" type="submit">Déconnexion</button>
+               </form>
+          </div>
+        </div>';
+  exit();
+}
+
+?>
 
   <div class="login-box">
     <div class="login-header">
       <header>Sign Up</header>
     </div>
-    <form action="traitement_inscription.php" method="POST">
+    <form action="../traitement/inscription_execute.php" method="POST">
       <div class="input-box">
         <input type="text" class="input-field" placeholder="Nom" name="nom" required>
       </div>
       <div class="input-box">
         <input type="text" class="input-field" placeholder="Prénom" name="prenom" required>
+      </div>
+      <div class="input-box">
+        <input type="text" class="input-field" placeholder="Ville" name="ville" required>
+      </div>
+      <div class="input-box">
+        <input type="text" class="input-field" placeholder="Adresse" name="adresse" required>
       </div>
       <div class="input-box">
         <input type="email" class="input-field" placeholder="Email" name="email" required>
@@ -37,7 +67,7 @@
 
       <div class="forgot">
         <section>
-          <input type="checkbox" id="terms" required>
+          <input type="checkbox" id="terms" required name="terms">
           <label for="terms">J'accepte les <a href="#">conditions</a></label>
         </section>
       </div>
@@ -47,7 +77,7 @@
 </div>
 
       <div class="sign-up-link">
-        <p>Déjà un compte ? <a href="login.html">Se connecter</a></p>
+        <p>Déjà un compte ? <a href="login.php">Se connecter</a></p>
       </div>
     </form>
   </div>
