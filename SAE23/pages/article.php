@@ -27,7 +27,7 @@ if (!$article) {
 // }
 // // importe les fonction liée au panié 
 
-$note = 4 //$article['note']; // note temporaire pour les testes, à imorté en SQL 
+$note =  $article['avis']; // note temporaire pour les testes, à imorté en SQL 
 ?>
 <!DOCTYPE html>
     <html lang="fr">
@@ -39,7 +39,7 @@ $note = 4 //$article['note']; // note temporaire pour les testes, à imorté en 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
         <!-- style de la page  -->
-        <script src="note.js" defer></script>
+        <script src="../note.js" defer></script>
         <!-- scripte pour le système de note     -->
     </head>
 
@@ -54,10 +54,10 @@ $note = 4 //$article['note']; // note temporaire pour les testes, à imorté en 
         <div class='container_article'>
             <div>
                 <!-- premier colone  -->
-                <img src='images/Le Parrain.jpg' alt='Article' class='img_article'>  <br><br>
+                <img src='../images/<?php echo $article['image']; ?>' alt='Article' class='img_article'>  <br><br>
                 <!-- affiche de l'article, à imorté en SQL ?php echo $article["chemain_image"]; ? -->
                 <h2 style='color:white;' class='titre_article' > Bande d'annonce </h2>
-                <iframe width="770" height="433" class='video_extrai' src="https://www.youtube.com/embed/UaVTIH8mujA?si=rgO7gNgI9onR6U4g" title="YouTube video player" frameborder="0" ></iframe>
+                <iframe width="770" height="433" class='video_extrai' src=<?php echo $article['lienYT__extrai']; ?> title="YouTube video player" frameborder="0" ></iframe>
                 <!-- intégrayion youtube pour l'extrai, avec un lien, à imorté en SQL -->
             </div>
 

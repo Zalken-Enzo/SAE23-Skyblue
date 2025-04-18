@@ -60,8 +60,10 @@
     <section class="categories" id="categories">
         <div class="heading">
             <h1>Films</h1>
+            <div class="subheading">
             <span>Dernière sortie</span>
             <a href="films.php" class="swbutton">Voir plus !</a>
+            </div>
         </div>
 
         <!-- SQL -->
@@ -109,8 +111,10 @@
     <section class="categories" id="categories">
         <div class="heading">
             <h1>Séries</h1>
+            <div class="subheading">
             <span>Dernière sortie</span>
             <a href="#" class="swbutton">Voir plus !</a>
+            </div>
         </div>
 
         <!-- Conteneur principal -->
@@ -124,11 +128,7 @@
                         <span><?php echo $rs['prix']; ?>€</span>
                         <span class="duration">Durée: <?php echo $rs['duree']; ?> min</span> <!-- Durée -->
                         <span class="genre">Genre: <?php echo $rs['categorie']; ?></span> <!-- Genre -->
-
-                        <!-- Champ de quantité -->
                        
-                        <br>
-                        <br>
                                     <!-- Formulaire d'ajout au panier -->
                         <form method="post">
                             <input type="hidden" name="titre" value="<?= $rs['titre']; ?>">

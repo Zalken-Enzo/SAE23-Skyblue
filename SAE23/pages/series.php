@@ -106,6 +106,8 @@ $response = $connexion->query($sql_article);
         </div>
 
         <button type="submit" class="apply-filters">Appliquer les filtres</button>
+        <br>
+        <br>
         <a href="films.php" class="reset-filters" style="margin-top: 30px">Réinitialiser</a>
     </form>
 </div>

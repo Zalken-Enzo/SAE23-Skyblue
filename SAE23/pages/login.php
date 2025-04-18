@@ -51,11 +51,7 @@ if (isset($_SESSION["id_login"])) {
         </div>
         <div class="forgot">
             <section>
-                <input type="checkbox" name="remember" id="check">
-                <label for="check">Remember me</label>
-            </section>
-            <section>
-                <a href="#">Forgot password</a>
+                <a href="#">Mot de passe oublié ?</a>
             </section>
         </div>
         <div class="input-submit">
@@ -64,7 +60,7 @@ if (isset($_SESSION["id_login"])) {
     </form>
 
     <div class="sign-up-link">
-        <p>Don't have account? <a href="inscription.php">Sign Up</a></p>
+    <a href="inscription.php">Inscris-toi</a>
     </div>
 </div>
 

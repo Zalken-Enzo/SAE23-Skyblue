@@ -68,7 +68,7 @@ if (isset($_SESSION["id_login"])) {
       <div class="forgot">
         <section>
           <input type="checkbox" id="terms" required name="terms">
-          <label for="terms">J'accepte les <a href="#">conditions</a></label>
+          <label for="terms">J'accepte les conditions</label>
         </section>
       </div>
 
@@ -77,7 +77,7 @@ if (isset($_SESSION["id_login"])) {
 </div>
 
       <div class="sign-up-link">
-        <p>Déjà un compte ? <a href="login.php">Se connecter</a></p>
+<a href="login.php">Se connecter</a>
       </div>
     </form>
   </div>
