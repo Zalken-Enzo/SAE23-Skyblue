@@ -54,7 +54,7 @@ if (!empty($titresListe)) {
     <link rel="icon" type="image/png" href="../main/images/CD.png">
 </head>
 <body>
-<?php include "../include/entete.html"; ?>
+<?php include "../include/entete.php"; ?>
 
 <section class="container_panier">
     <aside class="panier">

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel - Gérer les Articles</title>
     <link rel="stylesheet" href="../style.css">
-    <?php include '../include/entete.html'; ?>
+    <?php include '../include/entete.php'; ?>
 </head>
 
 <body>

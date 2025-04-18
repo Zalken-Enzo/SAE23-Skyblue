@@ -11,7 +11,7 @@
 
 <body>
   <header>
-    <?php include '../include/entete.html';?>
+    <?php include '../include/entete.php';?>
   </header>
 
   <?php

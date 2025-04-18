@@ -7,7 +7,7 @@
 </head>
 <body>
     <header>
-        <?php include '../include/entete.html'; ?>
+        <?php include '../include/entete.php'; ?>
     </header>
     <main style="height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
         <h1 class="titreAdmin">Bienvenue Administrateur de SkyBlue</h1>

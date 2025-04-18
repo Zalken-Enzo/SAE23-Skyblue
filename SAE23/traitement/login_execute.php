@@ -1,69 +1,61 @@
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-  <meta charset="UTF-8" />
-  <title>Inscription</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
-
-<body>
-  <header>
-    <?php include '../include/entete.html'; ?>
-  </header>
-  <div class="login-box">
-    <div class="login-header">
-      <header>Login</header>
-    
-  <?php
+<?php
 if (session_status() === PHP_SESSION_NONE) {
-  session_start();
+    session_start();
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") 
-{
-  $email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
-  $password = $_POST["password"];
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // Sécurité : nettoyage des données
+    $email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
+    $password = $_POST["password"];
 
- include '../include/database.php';
+    include '../include/database.php';
 
- if (!filter_var($email, FILTER_VALIDATE_EMAIL)) 
- {
-     echo "<h1> L'adresse email n'est pas valide. </h1>";
-     exit();
- }
+    // Vérifie que l'email est valide
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $_SESSION['login_error'] = "L'adresse email n'est pas valide.";
+        header("Location: ../pages/login.php");
+        exit();
+    }
 
-$query = $connexion->prepare("SELECT password, id_login, admin, id_client FROM login WHERE email = :email");
-$query->bindParam(':email', $email);
-$success = $query->execute();
-$result = $query->fetch(PDO::FETCH_ASSOC);
+    // Requête préparée avec jointure pour récupérer le prénom de la table client
+    $query = $connexion->prepare("SELECT login.password, login.id_login, login.admin, login.id_client, client.prenom 
+                                  FROM login
+                                  JOIN client ON client.id_client = login.id_client
+                                  WHERE login.email = :email");
+    $query->bindParam(':email', $email);
+    $success = $query->execute();
+    $result = $query->fetch(PDO::FETCH_ASSOC);
 
-if (!$success){
-    echo "<h1>Erreur lors de la connexion.</h1>";
+    // Si email inconnu
+    if (!$success || !$result) {
+        $_SESSION['login_error'] = "Email ou mot de passe incorrect.";
+        header("Location: ../pages/login.php");
+        exit();
+    }
+
+    // Vérification du mot de passe
+    if (!password_verify($password, $result['password'])) {
+        $_SESSION['login_error'] = "Email ou mot de passe incorrect.";
+        header("Location: ../pages/login.php");
+        exit();
+    }
+
+    // Connexion réussie, on stocke les infos en session
+    $_SESSION['id_client'] = $result['id_client'];
+    $_SESSION['id_login'] = $result['id_login'];
+    $_SESSION['admin'] = $result['admin'];
+    $_SESSION['prenom'] = $result['prenom'];
+
+    // Redirection selon le rôle
+    if ($result['admin'] == 1) {
+        header("Location: ../pages/admin.php");
+    } else {
+        header("Location: ../accueil.php");
+    }
+    exit();
+} else {
+    // Accès direct sans POST
+    header("Location: ../pages/login.php");
     exit();
 }
-
-if (!password_verify($password,$result['password']))
-{
-  echo "<h1> Email ou mot de passe ne correspondent pas <h1>";
-  exit();
-}
-
-$_SESSION['id_client'] = $result['id_client'];
-$_SESSION['id_login'] = $result['id_login'];
-$_SESSION['admin'] = $result['admin'];
-
-echo "<h1> Connexion Réussie! <h1>";
-header("Refresh: 2; url=../accueil.php");
-
-}
-
-  ?>
-    </div>
-    </div>
-  <?php include '../include/pieds.html'; ?>
-</body>
-
-</html>
+?>

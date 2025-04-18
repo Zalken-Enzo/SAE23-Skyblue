@@ -1,7 +1,7 @@
 <?php
 // connecte à la page de connextion 
 include 'connect.php';
-include_once('include/entete.html');
+include_once('include/entete.php');
 
 // récupère l'ID de l'article depuis l'url
 $article_id = $_GET['id'];

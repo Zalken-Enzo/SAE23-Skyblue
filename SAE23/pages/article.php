@@ -45,7 +45,7 @@ $note = 4 //$article['note']; // note temporaire pour les testes, à imorté en 
 
     <body>
         <?php
-            include_once('../include/entete.html');
+            include_once('../include/entete.php');
         ?>
             
         <!-- inclusion de l'entête commune  -->

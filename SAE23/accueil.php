@@ -18,7 +18,7 @@
 
 <body>
     <header>
-        <?php include 'include/entete.html'; ?>
+        <?php include 'include/entete.php'; ?>
     </header>
 
     <!-- Section swiper -->
@@ -79,7 +79,7 @@
         <div class="categories-container">
             <?php foreach($response_film AS $rf): ?>
                 <div class="box">
-                    <img class="boximg" src="<?php echo $rf['image']; ?>" alt="Le Voyage de Chihiro" />
+                <img class="boximg" src="images/<?php echo $rf['image']; ?>" alt="Image de <?php echo htmlspecialchars($rf['titre']); ?>" />
                     <div class="box-content">
                         <h2><?php echo $rf['titre']; ?></h2>
                         <span><?php echo $rf['prix']; ?>€</span>
@@ -118,7 +118,7 @@
         <div class="categories-container">
             <?php foreach($response_series AS $rs): ?>
                 <div class="box">
-                    <img class="boximg" src="images/chihiro.webp" alt="Le Voyage de Chihiro" />
+                <img class="boximg" src="images/<?php echo $rs['image']; ?>" alt="Image de <?php echo htmlspecialchars($rs['titre']); ?>" />
                     <div class="box-content">
                         <h2><?php echo $rs['titre']; ?></h2>
                         <span><?php echo $rs['prix']; ?>€</span>
