@@ -11,7 +11,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>Accueil</title>
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -27,7 +27,7 @@
 
             <div class="swiper-slide container">
                 <div class="home-text">
-                    
+
                     <h1>Your Name</h1>
                     <a href="#" class="swbutton">Achetez le !</a>
                 </div>
@@ -61,8 +61,8 @@
         <div class="heading">
             <h1>Films</h1>
             <div class="subheading">
-            <span>Dernière sortie</span>
-            <a href="films.php" class="swbutton">Voir plus !</a>
+                <span>Dernière sortie</span>
+                <a href="/SAE23/pages/films.php" class="swbutton">Voir plus !</a>
             </div>
         </div>
 
@@ -80,27 +80,28 @@
 
         <div class="categories-container">
             <?php foreach($response_film AS $rf): ?>
-                <div class="box">
-                <img class="boximg" src="images/<?php echo $rf['image']; ?>" alt="Image de <?php echo htmlspecialchars($rf['titre']); ?>" />
-                    <div class="box-content">
+            <div class="box">
+                <img class="boximg" src="images/<?php echo $rf['image']; ?>"
+                    alt="Image de <?php echo htmlspecialchars($rf['titre']); ?>" />
+                <div class="box-content">
+                    <a href="article.php?id=<?php echo $rf['id_article']; ?>" class="link-wrapper">
                         <h2><?php echo $rf['titre']; ?></h2>
                         <span><?php echo $rf['prix']; ?>€</span>
-                        <span class="duration">Durée: <?php echo $rf['duree']; ?> min</span> <!-- Durée -->
-                        <span class="genre">Genre: <?php echo $rf['categorie']; ?></span> <!-- Genre -->
+                        <span class="duration">Durée: <?php echo $rf['duree']; ?> min</span>
+                        <span class="genre">Genre: <?php echo $rf['categorie']; ?></span>
+                    </a>
 
-                        <!-- Champ de quantité -->
-                        <div class="quantity">
-                            <label for="quantity">Quantité:</label>
-                            <input type="number" id="quantity" name="quantity" min="1" value="1">
-                        </div>
-                        <br>
-                        <br>
-                        <button class="add-to-cart">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </button>
-
+                    <!-- Champ de quantité -->
+                    <div class="quantity">
+                        <label for="quantity">Quantité:</label>
+                        <input type="number" id="quantity" name="quantity" min="1" value="1">
                     </div>
+                    <br><br>
+                    <button class="add-to-cart">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </button>
                 </div>
+            </div>
             <?php endforeach; ?>
         </div>
 
@@ -112,8 +113,8 @@
         <div class="heading">
             <h1>Séries</h1>
             <div class="subheading">
-            <span>Dernière sortie</span>
-            <a href="#" class="swbutton">Voir plus !</a>
+                <span>Dernière sortie</span>
+                <a href="/SAE23/pages/series.php" class="swbutton">Voir plus !</a>
             </div>
         </div>
 
@@ -121,36 +122,30 @@
 
         <div class="categories-container">
             <?php foreach($response_series AS $rs): ?>
-                <div class="box">
-                <img class="boximg" src="images/<?php echo $rs['image']; ?>" alt="Image de <?php echo htmlspecialchars($rs['titre']); ?>" />
-                    <div class="box-content">
+            <div class="box">
+                <img class="boximg" src="images/<?php echo $rs['image']; ?>"
+                    alt="Image de <?php echo htmlspecialchars($rs['titre']); ?>" />
+                <div class="box-content">
+                    <a href="article.php?id=<?php echo $rs['id_article']; ?>" class="link-wrapper">
                         <h2><?php echo $rs['titre']; ?></h2>
                         <span><?php echo $rs['prix']; ?>€</span>
-                        <span class="duration">Durée: <?php echo $rs['duree']; ?> min</span> <!-- Durée -->
-                        <span class="genre">Genre: <?php echo $rs['categorie']; ?></span> <!-- Genre -->
-                       
-                                    <!-- Formulaire d'ajout au panier -->
-                        <form method="post">
-                            <input type="hidden" name="titre" value="<?= $rs['titre']; ?>">
-                            <input type="hidden" name="prix" value="<?= $rs['prix']; ?>">
-                            <!-- <input type="hidden" name="image" value=""> --- Ajoutez l'image si nécessaire -->
+                        <span class="duration">Durée: <?php echo $rs['duree']; ?> min</span>
+                        <span class="genre">Genre: <?php echo $rs['categorie']; ?></span>
+                    </a>
 
-                            <div class="quantity">
-                                <label for="quantity">Quantité:</label>
-                                <input type="number" id="quantity" name="quantite" min="1" value="1">
-                            </div>
-
-                            <button type="submit" name="ajouter" class="add-to-cart">
-                                <i class="fa-solid fa-cart-shopping"></i>
-                            </button>
-                        </form>
-
+                    <!-- Champ de quantité -->
+                    <div class="quantity">
+                        <label for="quantity">Quantité:</label>
+                        <input type="number" id="quantity" name="quantity" min="1" value="1">
                     </div>
+                    <br><br>
+                    <button class="add-to-cart">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </button>
                 </div>
-
+            </div>
             <?php endforeach; ?>
         </div>
-
     </section>
 
     <!-- Swiper JS -->

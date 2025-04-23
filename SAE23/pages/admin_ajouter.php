@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+// Vérifie si l'utilisateur est connecté et admin
+if (!isset($_SESSION['admin']) || $_SESSION['admin'] != 1) {
+    // Redirige vers la page d'accueil ou de connexion
+    header('Location: /SAE23/accueil.php');
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

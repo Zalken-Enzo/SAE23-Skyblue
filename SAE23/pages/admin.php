@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+// Vérifie si l'utilisateur est connecté et admin
+if (!isset($_SESSION['admin']) || $_SESSION['admin'] != 1) {
+    // Redirige vers la page d'accueil ou de connexion
+    header('Location: /SAE23/accueil.php');
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -15,7 +26,7 @@
         <div class="button-container" style="margin-top: 50px; flex-direction: column; align-items: center; gap: 20px;">
             <button onclick="window.location.href='admin_main.php'">Gestions articles</button>
             <button onclick="window.location.href='admin_ajouter.php'">Créations articles</button>
-            <button onclick="window.location.href='gestion_utilisateurs.php'">Gestions utilisateurs</button>
+            <button onclick="window.location.href='admin_users.php'">Gestions utilisateurs</button>
             <button onclick="window.location.href='logout.php'">Déconnexion</button>
         </div>
     </main>

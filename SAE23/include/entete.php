@@ -16,16 +16,16 @@ if (session_status() === PHP_SESSION_NONE) {
 ?>
 
     <header>
-        <img class="logo" src="/SAE23/images/logo.png" alt="logo" />
+            <img class="logo" src="/SAE23/images/logo.png" alt="logo" />
         <nav>
             <ul class="nav">
                 <li><a href="/SAE23/accueil.php">Accueil</a></li>
                 <li><a href="/SAE23/pages/films.php">Films</a></li>
-                <li><a href="/SAE23/series.php">Séries</a></li>
+                <li><a href="/SAE23/pages/series.php">Séries</a></li>
             </ul>
         </nav>
 
-        <form class="search" method="get" action="/SAE23/traitphp/search.php">
+        <form class="search" method="get" action="/SAE23/traitement/search.php">
             <input type="text" class="search-bar" placeholder="Rechercher..." name="query" />
         </form>
 

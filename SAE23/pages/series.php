@@ -117,10 +117,12 @@ $response = $connexion->query($sql_article);
         <div class="box">
         <img class="boximg" src="../images/<?php echo $r['image']; ?>" alt="Image de <?php echo htmlspecialchars($r['titre']); ?>" />
             <div class="box-content">
+            <a href="article.php?id=<?php echo $r['id_article']; ?>" class="link-wrapper">
                 <h2><?php echo htmlspecialchars($r['titre']); ?></h2>
                 <span><?php echo $r['prix']; ?>€</span>
                 <span class="duration">Durée: <?php echo $r['duree']; ?> min</span>
                 <span class="genre">Genre: <?php echo htmlspecialchars($r['categorie']); ?></span>
+                </a>
 
                 <div class="quantity">
                     <label for="quantity">Quantité:</label>
